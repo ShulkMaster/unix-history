@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
-declare module 'donatello-svg' {
+declare module 'nice-waves' {
   let lib: any;
   export = lib;
 }
