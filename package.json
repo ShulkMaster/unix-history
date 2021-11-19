@@ -7,13 +7,12 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "i": "^0.3.7",
+    "@webscopeio/react-console": "^1.2.1",
     "nice-waves": "^1.0.1",
     "npm": "^8.1.4",
     "react": "^17.0.0",
     "react-animated-term": "^2.0.0",
     "react-dom": "^17.0.0",
-    "svg-inline-react": "^3.2.1",
     "vite-tsconfig-paths": "^3.3.17"
   },
   "devDependencies": {

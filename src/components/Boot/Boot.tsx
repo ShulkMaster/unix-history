@@ -1,3 +1,4 @@
+import {Console} from 'components/console/Console';
 import play from 'assets/play.svg';
 import {useState} from 'react';
 import {Waves} from 'components/waves/Waves';
@@ -19,7 +20,6 @@ export const Boot = () => {
     case 'booting':
       return <Waves onFinish={setState}/>;
     case 'booted':
-      return <p>booted</p>;
+      return <Console/>;
   }
-
 };

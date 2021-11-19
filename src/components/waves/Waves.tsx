@@ -1,6 +1,6 @@
+import {BootState} from 'components/boot/Boot';
 import waves from 'nice-waves';
-import {useLayoutEffect, useRef} from 'react';
-import {BootState} from '../Boot/Boot';
+import {useEffect, useLayoutEffect, useRef} from 'react';
 
 export type WavesProps = {
   onFinish: (state: BootState) => void;
@@ -8,9 +8,10 @@ export type WavesProps = {
 
 export const Waves = ({onFinish}: WavesProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const current = ref.current;
+
   useLayoutEffect(() => {
-    if (!current) return;
+    if (!ref.current) return;
+    console.log('called');
     const opts = {
       fills: [
         'rgba(92, 7, 7, 0.65)',
@@ -25,14 +26,13 @@ export const Waves = ({onFinish}: WavesProps) => {
       randomOffset: 0.29,
     };
 
-    const wav = waves(opts).mount(current);
+    const wav = waves(opts).mount(ref.current);
     wav.play();
     const stamp = setTimeout(() => onFinish('booted'), 5000);
     return () => {
-      wav.stop();
       clearTimeout(stamp);
     };
-  }, [current, onFinish]);
+  }, [ref]);
 
-  return <div id="main-frame" ref={ref}/>;
+  return <div className="main-frame" ref={ref}/>;
 };
