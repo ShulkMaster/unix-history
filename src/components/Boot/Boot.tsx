@@ -20,6 +20,6 @@ export const Boot = () => {
     case 'booting':
       return <Waves onFinish={setState}/>;
     case 'booted':
-      return <Console/>;
+      return <Console exit={setState}/>;
   }
 };
