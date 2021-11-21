@@ -3,6 +3,7 @@ import React, {useRef, useState} from 'react';
 import ReactConsole from '@webscopeio/react-console';
 import {Prompt} from './Prompt';
 import {CommandEvent} from './CommandFactory';
+import {commands} from 'command';
 
 export const Console = () => {
   const [history, setHistory] = useState<string[]>([]);
@@ -10,10 +11,16 @@ export const Console = () => {
   const ref = useRef<ReactConsole>(null);
 
   const colorStyle = {color: '#0f0'};
+  const unixCommand = commands(setCommand);
   const notFound = async (...command: string[]): Promise<string> => {
     const commandName = command[0] || '';
     return `Command ${commandName} does not exist
 to see the list of available commands please type commands command`;
+  };
+
+  unixCommand.history = {
+    description: 'History',
+    fn: async () => history.join('\r\n'),
   };
 
   const afterClose = () => {
@@ -35,24 +42,8 @@ to see the list of available commands please type commands command`;
         noCommandFound={notFound}
         ref={ref}
         onAddHistoryItem={entry => setHistory(h => [...h, entry])}
-        commands={{
-          history: {
-            description: 'History',
-            fn: () => new Promise(resolve => {
-              resolve(`${history.join('\r\n')}`);
-            }),
-          },
-          echo: {
-            description: 'echo',
-            fn: async (...args) => args.join(' '),
-          },
-          unix: {
-            description: 'Shows unix summary',
-            fn: async () => {
-              setCommand('unix');
-            },
-          },
-        }}/>
+        commands={unixCommand}
+      />
     </div>
   );
 };

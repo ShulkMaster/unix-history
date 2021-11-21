@@ -1,24 +1,26 @@
-import {CommandEvent} from 'components/console/CommandFactory';
+import {CommandEvent} from './components/console/CommandFactory';
 
-export const command = (input: string): CommandEvent => {
-  const args = input.split(' ').map(arg => arg.trim());
-  console.log(args);
-  if (args.length < 1 || args[0] === '') {
-    return {command: 'Enter'};
-  }
+type Command = {
+  description: string;
+  fn: (...args: string[]) => Promise<void | string>;
+};
 
-  const command = args[0].toUpperCase();
+type CommandsProp = {
+  [command: string]: Command
+};
 
-  switch (command) {
-    case 'Echo':
-      return {
-        command: 'Echo',
-        args: input.trim().substring(4),
-      };
-    default:
-      return {
-        command: 'NoCommand',
-        name: args[0],
-      };
-  }
+const makeCommand = (command: CommandEvent, setCommand: (command: CommandEvent) => void): Command => ({
+  description: command,
+  fn: async () => setCommand(command),
+});
+
+export const commands = (setCommand: (command: CommandEvent) => void): CommandsProp => {
+  return {
+    unix: makeCommand('unix', setCommand),
+    background: makeCommand('background', setCommand),
+    echo: {
+      description: 'echo',
+      fn: async (...args) => args.join(' '),
+    },
+  };
 };

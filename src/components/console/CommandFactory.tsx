@@ -1,4 +1,4 @@
-import {Unix} from './commands/unix';
+import {Unix, Background} from 'components/commands';
 
 export type CommandEvent =
   | 'unix'
@@ -16,6 +16,8 @@ export const CommandFactory = ({event}: { event: CommandEvent }): JSX.Element =>
   switch (event) {
     case 'unix':
       return <Unix/>;
+    case 'background':
+      return <Background/>;
     default:
       return <p>command not fount</p>;
   }
