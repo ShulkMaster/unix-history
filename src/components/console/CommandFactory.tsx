@@ -1,5 +1,6 @@
 import {Unix, Background} from 'components/commands';
 import {Creator} from '../commands/creator';
+import {Reasons} from '../commands/reasons';
 
 export type CommandEvent =
   | 'unix'
@@ -19,6 +20,8 @@ export const CommandFactory = ({event}: { event: CommandEvent }): JSX.Element =>
       return <Background/>;
     case 'creators':
       return <Creator/>;
+    case 'reasons':
+      return <Reasons/>;
     default:
       return <p>command not fount</p>;
   }

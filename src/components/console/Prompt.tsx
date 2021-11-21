@@ -16,7 +16,6 @@ export const Prompt = ({command, setOpen, afterClose}: ModalProps) => {
       bodyOpenClassName="prompt-modal"
       className="prompt-modal-content"
       portalClassName="prompt-portal"
-      shouldFocusAfterRender={true}
     >
       <CommandFactory event={command as CommandEvent}/>
     </Modal>
