@@ -1,3 +1,5 @@
+import {Escape} from 'components/console/escape';
+
 export const Creator = () => {
   return (
     <div>
@@ -28,6 +30,7 @@ export const Creator = () => {
         Recibió el Premio Turing de 1983 por su desarrollo de la teoría de sistemas operativos genéricos y su
         implementación en la forma del sistema Unix.
       </p>
+      <Escape next="reasons"/>
     </div>
   );
 };

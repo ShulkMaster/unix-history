@@ -23,6 +23,10 @@ to see the list of available commands please type commands command`;
     fn: async () => history.join('\r\n'),
   };
 
+  unixCommand.commands = {
+    fn: async () => Object.keys(unixCommand).join('\r\n'),
+  };
+
   const afterClose = () => {
     ref?.current?.focusConsole();
   };

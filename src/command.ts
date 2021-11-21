@@ -1,4 +1,4 @@
-import {CommandEvent} from './components/console/CommandFactory';
+import {CommandEvent, CommandFactory} from './components/console/CommandFactory';
 
 type Command = {
   description?: string;

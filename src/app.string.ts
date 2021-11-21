@@ -1,6 +1,6 @@
 export const AppString = {
   welcome: (date: Date) => `Welcome to Unix
-      * Documentation: type the help command or comants to see the list of commands
+      * Documentation: type commands to see the list
       * Available 😎 
       * Management: https://github.com/webscopeio/react-console
       * Repo owner: webscopeio
