@@ -1,10 +1,10 @@
 import {AppString} from 'app.string';
+import {BootState} from 'types';
 import React, {useRef, useState} from 'react';
 import ReactConsole from '@webscopeio/react-console';
 import {Prompt} from './Prompt';
 import {CommandEvent} from './CommandFactory';
 import {commands} from 'command';
-import {BootState} from '../boot/Boot';
 
 export type ConsoleProps = {
   exit: (s: BootState) => void;

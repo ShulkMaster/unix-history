@@ -1,10 +1,9 @@
+import {BootState} from 'types';
 import {Console} from 'components/console/Console';
 import play from 'assets/play.svg';
 import {useState} from 'react';
 import {Waves} from 'components/waves/Waves';
 import './Boot.scss';
-
-export type BootState = 'init' | 'booting' | 'booted';
 
 export const Boot = () => {
   const [state, setState] = useState<BootState>('init');

@@ -1,4 +1,4 @@
-import {BootState} from 'components/boot/Boot';
+import {BootState} from 'types';
 import waves from 'nice-waves';
 import {useLayoutEffect, useRef} from 'react';
 
