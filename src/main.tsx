@@ -1,4 +1,4 @@
-import {Boot} from 'components/boot/Boot';
+import {Boot} from 'components/terminal/Boot';
 import {Header} from 'components/header/Header';
 import React from 'react';
 import ReactDOM from 'react-dom';
