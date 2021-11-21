@@ -1,5 +1,5 @@
-import {Boot} from './components/boot/Boot';
-import {Header} from './components/header/Header';
+import {Boot} from 'components/boot/Boot';
+import {Header} from 'components/header/Header';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
