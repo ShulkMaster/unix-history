@@ -1,6 +1,6 @@
 import {BootState} from 'components/boot/Boot';
 import waves from 'nice-waves';
-import {useEffect, useLayoutEffect, useRef} from 'react';
+import {useLayoutEffect, useRef} from 'react';
 
 export type WavesProps = {
   onFinish: (state: BootState) => void;
@@ -28,7 +28,7 @@ export const Waves = ({onFinish}: WavesProps) => {
 
     const wav = waves(opts).mount(ref.current);
     wav.play();
-    const stamp = setTimeout(() => onFinish('booted'), 5000);
+    const stamp = setTimeout(() => onFinish('booted'), 1000);
     return () => {
       clearTimeout(stamp);
     };
