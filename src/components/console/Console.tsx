@@ -4,8 +4,13 @@ import ReactConsole from '@webscopeio/react-console';
 import {Prompt} from './Prompt';
 import {CommandEvent} from './CommandFactory';
 import {commands} from 'command';
+import {BootState} from '../boot/Boot';
 
-export const Console = () => {
+export type ConsoleProps = {
+  exit: (s: BootState) => void;
+}
+
+export const Console = ({exit}: ConsoleProps) => {
   const [history, setHistory] = useState<string[]>([]);
   const [command, setCommand] = useState<CommandEvent | ''>('');
   const ref = useRef<ReactConsole>(null);
@@ -25,6 +30,10 @@ to see the list of available commands please type commands command`;
 
   unixCommand.commands = {
     fn: async () => Object.keys(unixCommand).join('\r\n'),
+  };
+
+  unixCommand.exit = {
+    fn: async () => exit('init'),
   };
 
   const afterClose = () => {

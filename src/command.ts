@@ -1,4 +1,4 @@
-import {CommandEvent, CommandFactory} from './components/console/CommandFactory';
+import {CommandEvent} from './components/console/CommandFactory';
 
 type Command = {
   description?: string;
@@ -22,7 +22,6 @@ export const commands = (setCommand: (command: CommandEvent) => void): CommandsP
     reasons: makeCommand('reasons', setCommand),
     versions: makeCommand('versions', setCommand),
     context: makeCommand('context', setCommand),
-    memory: makeCommand('memory', setCommand),
     echo: {
       fn: async (...args) => args.join(' '),
     },
