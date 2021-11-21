@@ -20,7 +20,7 @@ export const Reasons = () => {
       </p>
       <p>
         Las primeras versiones estuvieron escritas en assembly lo que lo convertia en un sitema con una huella de
-        memoria bastante pequeña
+        memoria bastante pequeña, ademas el kernel apenas tenia un par de miles de lineas de codigo
       </p>
       <img
         src="https://i2.wp.com/architecnologia.es/wp-content/uploads/2019/09/dennis-ritchie-ken-thompson.jpg?fit=800%2C504&ssl=1"
