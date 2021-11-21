@@ -15,6 +15,5 @@ export const AppString = {
       0 of these updates are security updates.
 
       The list of available updates is more than a week old.
-      To check for new updates run: sudo apt update
 `,
 } as const;

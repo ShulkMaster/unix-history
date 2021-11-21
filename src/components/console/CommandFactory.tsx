@@ -1,37 +1,22 @@
-import {Simulate} from 'react-dom/test-utils';
-import play = Simulate.play;
+import {Unix} from './commands/unix';
 
-export type Enter = {
-  command: 'Enter'
-}
-
-export type Echo = {
-  command: 'Echo',
-  args: string;
-}
-
-export type Exit = {
-  command: 'Exit',
-  args: string;
-}
-
-export type NoCommand = {
-  command: 'NoCommand'
-  name: string;
-}
-
-export type CommandEvent = Enter | Echo | Exit | NoCommand;
+export type CommandEvent =
+  | 'unix'
+  | 'background'
+  | 'creators'
+  | 'reasons'
+  | 'context'
+  | 'versions'
+  | 'memory'
+  | 'tree'
+  | 'cowsay';
 
 
 export const CommandFactory = ({event}: { event: CommandEvent }): JSX.Element => {
-  switch (event.command) {
-    case 'Enter':
-      return <p>root@unix-pc:~</p>;
-    case 'Echo':
-      return <p>{event.args}</p>;
-    case 'Exit':
-      return <p>{event.args}</p>;
+  switch (event) {
+    case 'unix':
+      return <Unix/>;
     default:
-      return <p>command {event.name} not fount</p>;
+      return <p>command not fount</p>;
   }
 };

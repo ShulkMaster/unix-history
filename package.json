@@ -9,6 +9,7 @@
   "dependencies": {
     "@types/react-modal": "^3.13.1",
     "@webscopeio/react-console": "^1.2.1",
+    "cowsay": "^1.5.0",
     "nice-waves": "^1.0.1",
     "npm": "^8.1.4",
     "react": "^17.0.0",

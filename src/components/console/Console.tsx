@@ -2,18 +2,11 @@ import {AppString} from 'app.string';
 import React, {useRef, useState} from 'react';
 import ReactConsole from '@webscopeio/react-console';
 import {Prompt} from './Prompt';
+import {CommandEvent} from './CommandFactory';
 
 export const Console = () => {
-  const [history, setHistory] = useState([
-    'echo hello world',
-    'sleep 1000',
-    'sleep 2000',
-    'sleep 3000',
-    'echo ola',
-    'not found',
-  ]);
-
-  const [command, setCommand] = useState('');
+  const [history, setHistory] = useState<string[]>([]);
+  const [command, setCommand] = useState<CommandEvent | ''>('');
   const ref = useRef<ReactConsole>(null);
 
   const colorStyle = {color: '#0f0'};
@@ -51,14 +44,12 @@ to see the list of available commands please type commands command`;
           },
           echo: {
             description: 'echo',
-            fn: async (...args) => {
-              return args.join(' ');
-            },
+            fn: async (...args) => args.join(' '),
           },
-          open: {
-            description: 'Open',
+          unix: {
+            description: 'Shows unix summary',
             fn: async () => {
-              setCommand('open');
+              setCommand('unix');
             },
           },
         }}/>

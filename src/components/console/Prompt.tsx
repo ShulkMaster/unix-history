@@ -1,4 +1,5 @@
 import Modal from 'react-modal';
+import {CommandEvent, CommandFactory} from './CommandFactory';
 
 export type ModalProps = {
   command: string;
@@ -7,8 +8,13 @@ export type ModalProps = {
 }
 export const Prompt = ({command, setOpen, afterClose}: ModalProps) => {
   return (
-    <Modal isOpen={Boolean(command)} onAfterClose={afterClose} onRequestClose={setOpen}>
-      <h1>{command}</h1>
+    <Modal
+      isOpen={Boolean(command)}
+      onAfterClose={afterClose}
+      onRequestClose={setOpen}
+      shouldFocusAfterRender={true}
+    >
+      <CommandFactory event={command as CommandEvent}/>
     </Modal>
   );
 };
